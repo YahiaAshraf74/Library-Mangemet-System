@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "26b60ce2-8ffc-4111-b41c-4a1ddb802c8f",
+		"name": "Library Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24869566"
+	},
+	"item": [
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Create a New Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isbn\": \"11234567890\",\n    \"title\": \"2Example Book\",\n    \"author\": \"ahmed yahia\",\n    \"quantity\": 5,\n    \"shelf\": \"A9\"\n}"
+						},
+						"url": "http://localhost:3000/api/books"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"coding\",\n    \"author\": \"Ali Ashraf\",\n    \"quantity\": 5,\n    \"available_quantity\": 5,\n    \"shelf\": \"A1\"\n}"
+						},
+						"url": "http://localhost:3000/api/books/27ee997a-c450-4b91-a5f4-77ce6ac3d82e"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/books/{bookId}"
+					},
+					"response": []
+				},
+				{
+					"name": "List All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/books"
+					},
+					"response": []
+				},
+				{
+					"name": "Search for a Book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/books/search?query=searchTerm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "searchTerm"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrower",
+			"item": [
+				{
+					"name": "Register a New Borrower",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"sara khaled\",\n    \"email\": \"sara.khaled@example.com\"\n}"
+						},
+						"url": "http://localhost:3000/api/borrowers"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Borrower Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Alice Johnson\",\n    \"email\": \"alice.johnson@example.com\"\n}"
+						},
+						"url": "http://localhost:3000/api/borrowers/{borrowerId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Borrower",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/borrowers/c65b1c0f-9802-48da-8cc5-bca0ec5e6fa1"
+					},
+					"response": []
+				},
+				{
+					"name": "List All Borrowers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/borrowers"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrowing",
+			"item": [
+				{
+					"name": "Check Out a Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": \"fbedae60-435c-4d8d-9dde-2c650ab94685\",\n    \"borrowerId\": \"87ef019e-43fa-4a97-82ed-bed184756dd4\",\n    \"dueDate\": \"2024-04-30T10:00:00.000Z\"\n}"
+						},
+						"url": "http://localhost:3000/api/borrowing/check-out"
+					},
+					"response": []
+				},
+				{
+					"name": "Return a Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:3000/api/borrowing/return/f89992ad-a307-4786-9705-422cdb065234"
+					},
+					"response": []
+				},
+				{
+					"name": "List Borrowed Books for a Borrower",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/borrowing/borrowed-books/f1410742-890e-4e97-a22d-7ded5a049bbc"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
