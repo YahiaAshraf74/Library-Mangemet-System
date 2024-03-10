@@ -5,12 +5,9 @@ const { Op } = require('sequelize');
 const createBook = async (req, res) => {
   try {
     const { isbn, title, author, quantity, shelf } = req.body;
-    // Input validation or any other business logic can be added here
-
     const book = await Book.create({ isbn, title, author, quantity, shelf });
     return res.status(201).json(book);
   } catch (error) {
-    // Error handling based on the type of error, e.g., duplicate ISBN
     return res.status(500).json({ message: error.message });
   }
 };
